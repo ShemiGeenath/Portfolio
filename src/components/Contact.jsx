@@ -56,7 +56,7 @@ const Contact = () => {
                 <div className="p-3 rounded-full bg-gray-800 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all">
                   <FiMail className="text-xl" />
                 </div>
-                <span className="text-lg">shemigeenath@example.com</span>
+                <span className="text-lg">shemigeenath1@gmail.com</span>
               </motion.a>
 
               <div className="flex justify-center space-x-6 pt-4">
@@ -71,7 +71,7 @@ const Contact = () => {
                   <FiGithub className="text-xl" />
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://www.linkedin.com/in/shemira-geenath-a97241354/"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3 rounded-full bg-gray-800 text-gray-300 hover:text-blue-400 hover:bg-gray-700 transition-all"

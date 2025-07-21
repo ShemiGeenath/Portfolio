@@ -6,7 +6,10 @@ import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
-  const texts = ["Full Stack Developer", "UI/UX Enthusiast", "Problem Solver"];
+  const texts = ["Full Stack Developer",
+  "Cloud & DevOps Enthusiast",
+  "Problem Solver",
+  "Thrives Under Pressure"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,7 +46,7 @@ const Hero = () => {
                 Hi, I'm
               </span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500">
-                Shemi Geenath
+                Shemira Geenath
               </span>
             </motion.h1>
 
@@ -64,8 +67,8 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-gray-400 text-base sm:text-lg max-w-lg"
             >
-              I craft exceptional digital experiences with modern technologies.
-              Currently building and showcasing innovative projects.
+              A Second year software engineering undergraduate with a passion for developing scalable
+and maintainable software
             </motion.p>
           </div>
 
@@ -75,14 +78,14 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-wrap gap-3 sm:gap-4"
           >
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#projects"
-              className="px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
-            >
-              View Projects
-            </motion.a>
+             <motion.a
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        href="#projects"
+className="px-6 py-3 bg-gradient-to-r from-purple-200 to-blue-100 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-base drop-shadow-md"
+      >
+        View Projects
+      </motion.a>
             
             <motion.a
               whileHover={{ scale: 1.05 }}
@@ -112,7 +115,7 @@ const Hero = () => {
             </motion.a>
             <motion.a
               whileHover={{ y: -3 }}
-              href="#"
+              href="https://www.linkedin.com/in/shemira-geenath-a97241354/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-400 transition-colors"
@@ -121,14 +124,14 @@ const Hero = () => {
             </motion.a>
             <motion.a
               whileHover={{ y: -3 }}
-              href="mailto:your@email.com"
+              href="shemigeenath1@gmail.com"
               className="text-gray-400 hover:text-red-400 transition-colors"
             >
               <FiMail className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.a>
             <motion.a
               whileHover={{ y: -3 }}
-              href="/resume.pdf"
+             href="/SHEMIRA-GEENATH (CV).pdf"
               download
               className="text-gray-400 hover:text-green-400 transition-colors"
             >

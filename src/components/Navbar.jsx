@@ -84,7 +84,7 @@ const Navbar = () => {
               </motion.a>
               <motion.a
                 whileHover={{ y: -3 }}
-                href="mailto:your@email.com"
+                href="mailto:shemigeenath1@gmail.com"
                 className="text-gray-400 hover:text-red-400"
               >
                 <FiMail className="h-5 w-5" />
@@ -151,7 +151,7 @@ const Navbar = () => {
                 </motion.a>
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  href="#"
+              href="https://www.linkedin.com/in/shemira-geenath-a97241354/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-blue-400"
@@ -160,7 +160,7 @@ const Navbar = () => {
                 </motion.a>
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  href="mailto:your@email.com"
+                href="mailto:shemigeenath1@gmail.com"
                   className="text-gray-400 hover:text-red-400"
                 >
                   <FiMail className="h-6 w-6" />
