@@ -6,10 +6,12 @@ import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
-  const texts = ["Full Stack Developer",
-  "Cloud & DevOps Enthusiast",
-  "Problem Solver",
-  "Thrives Under Pressure"];
+  const texts = [
+    "Full Stack Developer",
+    "Cloud & DevOps Enthusiast",
+    "Problem Solver",
+    "Thrives Under Pressure"
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,7 +70,7 @@ const Hero = () => {
               className="text-gray-400 text-base sm:text-lg max-w-lg"
             >
               A Second year software engineering undergraduate with a passion for developing scalable
-and maintainable software
+              and maintainable software
             </motion.p>
           </div>
 
@@ -78,14 +80,14 @@ and maintainable software
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-wrap gap-3 sm:gap-4"
           >
-             <motion.a
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        href="#projects"
-className="px-6 py-3 bg-gradient-to-r from-purple-200 to-blue-100 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-base drop-shadow-md"
-      >
-        View Projects
-      </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#projects"
+              className="px-6 py-3 bg-gradient-to-r from-purple-200 to-blue-100 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-base drop-shadow-md"
+            >
+              View Projects
+            </motion.a>
             
             <motion.a
               whileHover={{ scale: 1.05 }}
@@ -124,15 +126,15 @@ className="px-6 py-3 bg-gradient-to-r from-purple-200 to-blue-100 text-white rou
             </motion.a>
             <motion.a
               whileHover={{ y: -3 }}
-              href="shemigeenath1@gmail.com"
+              href="mailto:shemigeenath1@gmail.com"
               className="text-gray-400 hover:text-red-400 transition-colors"
             >
               <FiMail className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.a>
             <motion.a
               whileHover={{ y: -3 }}
-             href="/SHEMIRA-GEENATH (CV).pdf"
-              download
+              href="/SHEMIRA-GEENATH (CV).pdf"
+              download="Shemira-Geenath-CV.pdf"
               className="text-gray-400 hover:text-green-400 transition-colors"
             >
               <FiDownload className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -169,12 +171,10 @@ className="px-6 py-3 bg-gradient-to-r from-purple-200 to-blue-100 text-white rou
               whileHover={{ scale: 1.05 }}
               className="relative z-10 w-full h-full flex items-center justify-center"
             >
-              <div >
-<img src="/src/assets/1.jpeg" alt="Profile" className="w-102 h-102 rounded-full mt-4" />
+              <div>
+                <img src="/src/assets/1.jpeg" alt="Profile" className="w-102 h-102 rounded-full mt-4" />
                 <div className="w-full h-full bg-gray-700 flex items-center justify-center text-white">
-                 
-{/* <img src="/src/assets/1.jpeg" alt="Profile" className="w-72 h-72 rounded-full mt-4" /> */}
-
+                  {/* <img src="/src/assets/1.jpeg" alt="Profile" className="w-72 h-72 rounded-full mt-4" /> */}
                 </div>
               </div>
             </motion.div>

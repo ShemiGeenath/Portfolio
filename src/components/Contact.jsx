@@ -1,7 +1,7 @@
 // components/Contact.jsx
 import { motion } from 'framer-motion';
 import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
-import { FaTelegramPlane } from 'react-icons/fa';
+import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
   return (
@@ -49,7 +49,7 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <motion.a
-                href="mailto:shemigeenath@example.com"
+                href="mailto:shemigeenath1@gmail.com"
                 className="inline-flex items-center space-x-4 text-gray-300 hover:text-white transition-colors"
                 whileHover={{ x: 5 }}
               >
@@ -57,6 +57,19 @@ const Contact = () => {
                   <FiMail className="text-xl" />
                 </div>
                 <span className="text-lg">shemigeenath1@gmail.com</span>
+              </motion.a>
+
+              <motion.a
+                href="https://wa.me/94713512143"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center space-x-4 text-gray-300 hover:text-white transition-colors"
+                whileHover={{ x: 5 }}
+              >
+                <div className="p-3 rounded-full bg-gray-800 text-green-400 group-hover:bg-green-500 group-hover:text-white transition-all">
+                  <FaWhatsapp className="text-xl" />
+                </div>
+                <span className="text-lg">+94 71 351 2143</span>
               </motion.a>
 
               <div className="flex justify-center space-x-6 pt-4">
@@ -91,12 +104,6 @@ const Contact = () => {
             >
               <div className="absolute -left-8 -top-8 w-32 h-32 rounded-full bg-purple-600 opacity-20 blur-xl"></div>
               <div className="absolute -right-8 -bottom-8 w-40 h-40 rounded-full bg-blue-600 opacity-20 blur-xl"></div>
-              <div className="relative p-8 bg-gray-800/50 border border-gray-700 rounded-xl backdrop-blur-sm max-w-md mx-auto">
-                <FaTelegramPlane className="text-5xl text-purple-400 mx-auto mb-4" />
-                <p className="text-gray-300">
-                  Feel free to reach out for collaborations or just a friendly hello!
-                </p>
-              </div>
             </motion.div>
           </div>
         </motion.div>

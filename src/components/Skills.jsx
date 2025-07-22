@@ -1,20 +1,20 @@
 // components/Skills.jsx
 import { motion } from 'framer-motion';
-import { FiCode, FiDatabase, FiServer, FiCpu, FiCloud } from 'react-icons/fi';
+import { FiCode, FiDatabase, FiServer, FiCpu, FiCloud, FiLayers } from 'react-icons/fi';
 
 const Skills = () => {
   const technicalSkills = [
-    { name: 'React', level: 75, icon: <FiCpu className="text-blue-400" /> },
-    { name: 'Node.js', level: 70, icon: <FiServer className="text-green-500" /> },
-    { name: 'Express.js', level: 70, icon: <FiCode className="text-orange-500" /> },
-    { name: 'HTML', level: 90, icon: <FiCode className="text-orange-500" /> },
-    { name: 'CSS', level: 85, icon: <FiCode className="text-blue-500" /> },
-    { name: 'JavaScript', level: 80, icon: <FiCode className="text-yellow-400" /> },
-    { name: 'C', level: 65, icon: <FiCode className="text-yellow-400" /> },
-    { name: 'C++', level: 70, icon: <FiCode className="text-yellow-400" /> },
-    { name: 'MongoDB', level: 65, icon: <FiDatabase className="text-green-400" /> },
-    { name: 'PHP', level: 60, icon: <FiServer className="text-purple-500" /> },
-    { name: 'MySQL', level: 60, icon: <FiDatabase className="text-blue-600" /> },
+    { name: 'React', icon: <FiCpu className="text-blue-400" /> },
+    { name: 'Node.js', icon: <FiServer className="text-green-500" /> },
+    { name: 'Express.js', icon: <FiCode className="text-orange-500" /> },
+    { name: 'HTML', icon: <FiCode className="text-orange-500" /> },
+    { name: 'CSS', icon: <FiCode className="text-blue-500" /> },
+    { name: 'JavaScript', icon: <FiCode className="text-yellow-400" /> },
+    { name: 'C', icon: <FiCode className="text-yellow-400" /> },
+    { name: 'C++', icon: <FiCode className="text-yellow-400" /> },
+    { name: 'MongoDB', icon: <FiDatabase className="text-green-400" /> },
+    { name: 'PHP', icon: <FiServer className="text-purple-500" /> },
+    { name: 'MySQL', icon: <FiDatabase className="text-blue-600" /> },
   ];
 
   const devOpsSkills = [
@@ -45,6 +45,19 @@ const Skills = () => {
         duration: 0.5,
         ease: "easeOut"
       }
+    },
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.2 }
+    }
+  };
+
+  const iconVariants = {
+    hover: {
+      rotate: [0, 10, -10, 0],
+      transition: {
+        duration: 0.5
+      }
     }
   };
 
@@ -66,7 +79,7 @@ const Skills = () => {
           </span>
         </motion.h2>
 
-        {/* Technical Skills with percentages */}
+        {/* Technical Skills - Animated Cards */}
         <motion.div
           className="mb-16"
           initial={{ opacity: 0 }}
@@ -78,7 +91,7 @@ const Skills = () => {
             Technical Skills
           </h3>
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -87,45 +100,39 @@ const Skills = () => {
             {technicalSkills.map((skill, index) => (
               <motion.div
                 key={index}
-                className="group"
                 variants={itemVariants}
+                whileHover="hover"
+                className="flex flex-col items-center p-6 bg-gray-800/50 border border-gray-700 rounded-xl hover:border-purple-500 transition-all duration-300"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center space-x-3">
-                    <div className="text-xl">
-                      {skill.icon}
-                    </div>
-                    <span className="text-lg font-medium text-gray-200">{skill.name}</span>
-                  </div>
-                  <span className="text-sm font-mono text-gray-400">{skill.level}%</span>
-                </div>
-
-                <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden">
-                  <motion.div
-                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                  </motion.div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.span 
-                      className="text-xs font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      initial={{ x: -20 }}
-                      animate={{ x: 0 }}
-                    >
-                      {skill.level}%
-                    </motion.span>
-                  </div>
-                </div>
+                <motion.div
+                  variants={iconVariants}
+                  whileHover="hover"
+                  className="text-4xl mb-4 p-3 bg-gray-700/30 rounded-full"
+                >
+                  {skill.icon}
+                </motion.div>
+                <motion.span 
+                  className="text-lg font-medium text-gray-200"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {skill.name}
+                </motion.span>
+                <motion.div 
+                  className="w-full mt-4 flex justify-center"
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: "100%" }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <div className="h-1 w-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
 
-        {/* DevOps Skills without percentages */}
+        {/* DevOps Skills - Floating Bubbles */}
         <motion.div
           className="mb-16"
           initial={{ opacity: 0 }}
@@ -146,11 +153,19 @@ const Skills = () => {
             {devOpsSkills.map((skill, index) => (
               <motion.div
                 key={index}
-                className="flex items-center space-x-3 bg-gray-800/50 border border-gray-700 rounded-lg px-6 py-3 hover:border-blue-500 transition-all duration-300"
+                className="flex flex-col items-center p-6 bg-gray-800/50 border border-gray-700 rounded-full hover:border-blue-500 transition-all duration-300"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.1 }}
+                animate={{
+                  y: [0, -10, 0],
+                  transition: {
+                    duration: 3 + index * 0.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }
+                }}
               >
-                <div className="text-xl">
+                <div className="text-3xl mb-2">
                   {skill.icon}
                 </div>
                 <span className="text-lg font-medium text-gray-200">{skill.name}</span>
@@ -159,36 +174,85 @@ const Skills = () => {
           </motion.div>
         </motion.div>
 
-        {/* Skill Categories */}
+        {/* Skill Categories - Animated Accordion */}
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16 max-w-6xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
         >
           {[
-            { title: "Frontend", skills: ["HTML", "CSS", "JavaScript", "React"], color: "from-purple-500 to-blue-500" },
-            { title: "Backend", skills: ["Node.js", "PHP", "Express"], color: "from-green-500 to-teal-500" },
-            { title: "Database", skills: ["MongoDB", "MySQL"], color: "from-yellow-500 to-orange-500" },
-            { title: "DevOps", skills: ["Docker", "Kubernetes", "Terraform", "CI/CD", "AWS"], color: "from-blue-500 to-cyan-500" },
+            { 
+              title: "Frontend", 
+              skills: ["HTML", "CSS", "JavaScript", "React"],
+              icon: <FiCode className="text-purple-400" />,
+              color: "from-purple-500 to-blue-500" 
+            },
+            { 
+              title: "Backend", 
+              skills: ["Node.js", "PHP", "Express"],
+              icon: <FiServer className="text-green-400" />,
+              color: "from-green-500 to-teal-500" 
+            },
+            { 
+              title: "Database", 
+              skills: ["MongoDB", "MySQL"],
+              icon: <FiDatabase className="text-yellow-400" />,
+              color: "from-yellow-500 to-orange-500" 
+            },
+            { 
+              title: "DevOps", 
+              skills: ["Docker", "Kubernetes", "Terraform", "CI/CD", "AWS"],
+              icon: <FiCloud className="text-blue-400" />,
+              color: "from-blue-500 to-cyan-500" 
+            },
           ].map((category, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800/50 border border-gray-700 rounded-xl p-6 hover:border-purple-500 transition-all duration-300"
+              className="bg-gray-800/50 border border-gray-700 rounded-xl p-6 hover:border-purple-500 transition-all duration-300 overflow-hidden"
               whileHover={{ y: -5 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
             >
-              <h3 className={`text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r ${category.color}`}>
-                {category.title}
-              </h3>
-              <ul className="space-y-2">
+              <div className="flex items-center mb-4">
+                <motion.div 
+                  className="p-3 mr-4 bg-gray-700/30 rounded-lg"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {category.icon}
+                </motion.div>
+                <h3 className={`text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${category.color}`}>
+                  {category.title}
+                </h3>
+              </div>
+              <motion.ul className="space-y-2">
                 {category.skills.map((skill, i) => (
-                  <li key={i} className="flex items-center">
-                    <span className="w-2 h-2 rounded-full bg-purple-500 mr-3"></span>
+                  <motion.li 
+                    key={i} 
+                    className="flex items-center"
+                    initial={{ x: -20 }}
+                    whileInView={{ x: 0 }}
+                    transition={{ delay: i * 0.05 + 0.2 }}
+                  >
+                    <motion.span 
+                      className="w-2 h-2 rounded-full bg-purple-500 mr-3"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.7, 1, 0.7]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    ></motion.span>
                     <span className="text-gray-300">{skill}</span>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </motion.div>
           ))}
         </motion.div>

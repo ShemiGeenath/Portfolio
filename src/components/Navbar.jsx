@@ -1,6 +1,5 @@
 // components/Navbar.jsx
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
@@ -16,10 +15,21 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleScrollTo = (id) => {
+    setIsOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '#projects' },
-    { name: 'Contact', path: '#contact' }
+    { name: 'Home', id: 'Home' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Contact', id: 'contact' }
   ];
 
   return (
@@ -35,30 +45,30 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <Link 
-              to="/" 
+            <button 
+              onClick={() => handleScrollTo('home')}
               className="flex items-center space-x-2 text-2xl font-bold"
             >
               <span className="text-white">Shemira</span>
               <span className="text-purple-400">Geenath</span>
-            </Link>
+            </button>
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <motion.div
-                key={item.name}
+                key={item.id}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link
-                  to={item.path}
+                <button
+                  onClick={() => handleScrollTo(item.id)}
                   className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium relative group"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
-                </Link>
+                </button>
               </motion.div>
             ))}
 
@@ -75,7 +85,7 @@ const Navbar = () => {
               </motion.a>
               <motion.a
                 whileHover={{ y: -3 }}
-                href="#"
+                href="https://www.linkedin.com/in/shemira-geenath-a97241354/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-400"
@@ -123,18 +133,17 @@ const Navbar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900/95 backdrop-blur-md">
               {navItems.map((item) => (
                 <motion.div
-                  key={item.name}
+                  key={item.id}
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Link
-                    to={item.path}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-                    onClick={() => setIsOpen(false)}
+                  <button
+                    onClick={() => handleScrollTo(item.id)}
+                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
 
@@ -151,7 +160,7 @@ const Navbar = () => {
                 </motion.a>
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-              href="https://www.linkedin.com/in/shemira-geenath-a97241354/"
+                  href="https://www.linkedin.com/in/shemira-geenath-a97241354/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-blue-400"
@@ -160,7 +169,7 @@ const Navbar = () => {
                 </motion.a>
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                href="mailto:shemigeenath1@gmail.com"
+                  href="mailto:shemigeenath1@gmail.com"
                   className="text-gray-400 hover:text-red-400"
                 >
                   <FiMail className="h-6 w-6" />
