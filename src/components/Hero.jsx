@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
+import profileImg from '../assets/1.jpeg'
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -172,7 +173,7 @@ const Hero = () => {
               className="relative z-10 w-full h-full flex items-center justify-center"
             >
               <div>
-                <img src="/src/assets/1.jpeg" alt="Profile" className="w-102 h-102 rounded-full mt-4" />
+                  <img src={profileImg} alt="Profile" className="w-102 h-102 rounded-full mt-4" />
                 <div className="w-full h-full bg-gray-700 flex items-center justify-center text-white">
                   {/* <img src="/src/assets/1.jpeg" alt="Profile" className="w-72 h-72 rounded-full mt-4" /> */}
                 </div>
